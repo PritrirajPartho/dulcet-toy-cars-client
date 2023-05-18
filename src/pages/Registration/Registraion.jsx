@@ -1,6 +1,45 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Registraion = () => {
+    const{user, createUser, updateUserProfile} = useContext(AuthContext);
+    const[error, setError] = useState('');
+
+    const handleRegister = event =>{
+        event.preventDefault();
+        setError('');
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const name = form.name.value;
+        const photo = form.photo.value
+        console.log(email, name, password, photo)
+
+        //error condition is here below....... 
+        if(email.length == 0){
+            setError('Give your email please!!');
+            return;
+           }
+           else if(password.length == 0){
+            setError('Write your password please!');
+            return;
+           }
+           else if(password.length < 6){
+            setError('Give at least 6 or more characters word')
+            return;
+           }
+        // function for firebase...............
+        createUser(email, password)
+        .then(result =>{
+            const logedUser = result.user;
+            console.log(logedUser)
+            updateUserProfile({displayName:name, photoURL:photo})
+            form.reset();
+        })
+        .catch(err =>{
+          console.log(err.message)
+        })
+    }
 return (
   <section>
      <div className="hero min-h-screen bg-base-200">
@@ -8,7 +47,7 @@ return (
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <h1 className="text-3xl text-center font-bold">Registration Please!!</h1>
-                        <form>
+                        <form onSubmit={handleRegister}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
