@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { Tooltip } from 'react-tooltip'
 
 const Header = () => {
     const { logOut, user } = useContext(AuthContext);
@@ -27,11 +28,12 @@ const Header = () => {
                          <Link className='text-xl ms-7' to={'/mytoys'}>My-Toys</Link>
                          <Link className='text-xl ms-7' to={'/addtoy'}>Add Toy</Link>
                          <div className="avatar">
-                            <div className="w-24 rounded-full">
+                            <div className="ms-6  w-14 rounded-full profile-component" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}>
                                 <img src={user?.photoURL} />
+                                <Tooltip id="my-tooltip" />
                             </div>
                         </div>
-                         <button className="btn btn-primary ms-16 mr-8" onClick={logOut}>SignOut</button>                      </>
+                         <button className="btn btn-primary ms-12 mr-8" onClick={logOut}>SignOut</button>                      </>
                       :
                       <>
                         <Link className='text-xl ms-7 mr-12' to={'/login'}>Log in</Link> 

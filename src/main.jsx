@@ -5,11 +5,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
+import 'react-tooltip/dist/react-tooltip.css';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import Root from './Layout/Root/Root';
 import Registraion from './pages/Registration/Registraion';
 import AuthProvider from './AuthProvider/AuthProvider';
 import Login from './pages/login/Login';
+import AddToy from './pages/AddToy/AddToy';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 
 
@@ -31,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/addtoy",
+        element: <PrivateRoute><AddToy></AddToy></PrivateRoute>,
       },
     ],
   },
