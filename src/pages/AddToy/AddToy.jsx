@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import Select from 'react-select';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2'
 
 
 const AddToy = () => {
     const{user} = useContext(AuthContext);
     const [selectedOption, setSelectedOption] = useState(null);
     const options = [
-        { value: 'sports-car', label: 'sports-car' },
+        { value: 'bus', label: 'bus' },
         { value: 'truck', label: 'truck' },
         { value: 'regular-car', label: 'regular-car' },
       ];
@@ -15,8 +16,43 @@ const AddToy = () => {
     const handleAddToy = (event) =>{
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const seller = form.seller.value;
+        const email = form.email.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const quantity = form.quantity.value;
         const select = form.select.value;
-        console.log(select)
+        const description = form.description.value;
+        console.log(name, photo, seller, email, price, rating, quantity, select, description)
+
+        const toy = {
+            name: name, 
+            img: photo, 
+            seller: seller,
+            email: email, 
+            price: price,
+            rating: rating,
+            quantity: quantity,
+            category: select,
+            description: description
+        }
+        // =============================================================
+        fetch('http://localhost:5000/toys', {
+            method: 'POST', 
+            headers: {
+                'content-type': 'application/json'
+            }, 
+            body: JSON.stringify(toy)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire('This Toy added Successfully')
+            }
+        })
     }
 
     return (
@@ -58,7 +94,7 @@ const AddToy = () => {
                             <label className="label">
                                 <span className="label-text">Rating</span>
                             </label>
-                            <input type="text" name='rating' placeholder='Product rating' className="input input-bordered" />
+                            <input type="text" name='rating' placeholder='like as 4.5 or etc' className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -82,15 +118,15 @@ const AddToy = () => {
                         <label className="label">
                             <span className="label-text">Description</span>
                         </label>
-                        <textarea placeholder="description is here" className="textarea textarea-bordered textarea-lg w-full max-w-xs " ></textarea>
+                        <textarea name='description' placeholder="description is here" className="textarea textarea-bordered textarea-lg w-full max-w-xs " ></textarea>
                 </div>
                 <div className="form-control mt-8 ms-4 mr-4">
                     <input className="btn btn-primary btn-block" type="submit" value="Add A Toy" />
                 </div>
             </form>
-            <div className="card-body">
+            {/* <div className="card-body">
 
-            </div>
+            </div> */}
         </div>
     );
 };
