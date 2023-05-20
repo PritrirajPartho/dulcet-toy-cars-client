@@ -15,6 +15,7 @@ import AddToy from './pages/AddToy/AddToy';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import AllToys from './pages/AllToys/AllToys';
 import MyToys from './pages/MyToys/MyToys';
+import UpdateMyToys from './pages/MyToys/UpdateMyToys';
 
 
 
@@ -44,11 +45,15 @@ const router = createBrowserRouter([
       {
         path: "/alltoys",
         element: <AllToys></AllToys>,
-        loader: () => fetch(`https://toy-marketplace-server-sepia.vercel.app/toys`)
       },
       {
         path: "/mytoys",
         element: <PrivateRoute><MyToys></MyToys></PrivateRoute>,
+      },
+      {
+        path: "/update/:id",
+        element: <UpdateMyToys></UpdateMyToys>,
+        loader: ({params}) => fetch(`https://toy-marketplace-server-sepia.vercel.app/toys/${params.id}`)
       },
     ],
   },

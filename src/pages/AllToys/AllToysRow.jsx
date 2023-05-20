@@ -4,12 +4,10 @@ const AllToysRow = ({toy}) => {
     const{name, img, seller, email, price, rating, quantity, category, description} = toy;
     
     return (
-      <tr>
-            <th>
-                <td>
-                    {toy.seller && seller}
-                </td>
-            </th>
+       <tr>
+            <td className='font-bold'>
+                {toy.seller && seller}
+            </td>
             <td>{name}</td>
             <td>{category}</td>
             <td>${price}</td>

@@ -4,18 +4,18 @@ import AllToysRow from './AllToysRow';
 const AllToys = () => {
     const[toys, setToys] = useState([]);
     useEffect(() =>{
-        fetch('http://localhost:5000/toys')
+        fetch('https://toy-marketplace-server-sepia.vercel.app/toys')
         .then(res => res.json())
         .then(data => setToys(data))
     },[])
     return (
         <div>
-            <h2 className="text-5xl text-blue-600 text-center mt-8 mb-5">All Available Toys.</h2>
+            <h2 className="text-5xl text-blue-600 text-center mt-8 mb-8">All Available Toys.</h2>
             <div className="overflow-x-auto w-full mb-12">
                 <table className="table w-full ">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className='text-center'>
                             <th >Seller</th>
                             <th>Toy Name</th>
                             <th>Category</th>
@@ -24,7 +24,7 @@ const AllToys = () => {
                             <th>Details</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='text-center'>
                     {
                         toys.slice(0,20).map(toy => <AllToysRow 
                             key={toy._id}
