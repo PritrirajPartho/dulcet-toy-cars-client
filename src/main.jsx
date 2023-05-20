@@ -16,6 +16,8 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import AllToys from './pages/AllToys/AllToys';
 import MyToys from './pages/MyToys/MyToys';
 import UpdateMyToys from './pages/MyToys/UpdateMyToys';
+import ToyDetails from './pages/ToyDetails/ToyDetails';
+import Home from './pages/Home/Home';
 
 
 
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <div>hello i can setup this assignment</div>,
+        element: <Home></Home>,
       },
       {
         path: "/registration",
@@ -53,6 +55,11 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <UpdateMyToys></UpdateMyToys>,
+        loader: ({params}) => fetch(`https://toy-marketplace-server-sepia.vercel.app/toys/${params.id}`)
+      },
+      {
+        path: "/toy/:id",
+        element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
         loader: ({params}) => fetch(`https://toy-marketplace-server-sepia.vercel.app/toys/${params.id}`)
       },
     ],

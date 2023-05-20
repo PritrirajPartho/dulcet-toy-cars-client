@@ -25,8 +25,8 @@ const AddToy = () => {
         const quantity = form.quantity.value;
         const select = form.select.value;
         const description = form.description.value;
-        console.log(name, img, seller, email, price, rating, quantity, select, description)
-
+        console.log(name, photo, seller, email, price, rating, quantity, select, description)
+        console.log(photo)
         const toy = {
             name: name, 
             img: photo, 
@@ -39,7 +39,7 @@ const AddToy = () => {
             description: description
         }
         // =============================================================
-        fetch('http://localhost:5000/toys', {
+        fetch('https://toy-marketplace-server-sepia.vercel.app/toys', {
             method: 'POST', 
             headers: {
                 'content-type': 'application/json'
@@ -122,7 +122,7 @@ const AddToy = () => {
                         <textarea name='description' placeholder="description is here" className="textarea textarea-bordered textarea-lg w-full max-w-xs " ></textarea>
                 </div>
                 <div className="form-control mt-8 ms-4 mr-4">
-                    <input className="btn btn-primary btn-block" type="submit" value="Add A Toy" />
+                    <input className="btn btn-primary btn-block mb-10" type="submit" value="Add A Toy" />
                 </div>
             </form>
         </div>
