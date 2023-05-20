@@ -1,13 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import AllToysRow from './AllToysRow';
+import React from 'react';
 
-const AllToys = () => {
-    const[toys, setToys] = useState([]);
-    useEffect(() =>{
-        fetch('http://localhost:5000/toys')
-        .then(res => res.json())
-        .then(data => setToys(data))
-    },[])
+const MyToys = () => {
     return (
         <div>
             <h2 className="text-5xl text-blue-600 text-center mt-8 mb-5">All Available Toys.</h2>
@@ -38,4 +31,4 @@ const AllToys = () => {
     );
 };
 
-export default AllToys;
+export default MyToys;

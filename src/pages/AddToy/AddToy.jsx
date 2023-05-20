@@ -25,7 +25,7 @@ const AddToy = () => {
         const quantity = form.quantity.value;
         const select = form.select.value;
         const description = form.description.value;
-        console.log(name, photo, seller, email, price, rating, quantity, select, description)
+        console.log(name, img, seller, email, price, rating, quantity, select, description)
 
         const toy = {
             name: name, 
@@ -50,7 +50,8 @@ const AddToy = () => {
         .then(data => {
             console.log(data);
             if(data.insertedId){
-                Swal.fire('This Toy added Successfully')
+                Swal.fire('This Toy added Successfully');
+                form.reset();
             }
         })
     }
@@ -124,9 +125,6 @@ const AddToy = () => {
                     <input className="btn btn-primary btn-block" type="submit" value="Add A Toy" />
                 </div>
             </form>
-            {/* <div className="card-body">
-
-            </div> */}
         </div>
     );
 };
