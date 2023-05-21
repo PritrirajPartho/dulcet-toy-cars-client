@@ -8,14 +8,17 @@ import g7 from '../../../../public/gallery/g-7.jpeg';
 
 const Gallery = () => {
     return (
-    <section>
+    <section className='mb-12'>
+            <h1 className=''>Photo Gallery</h1>
             <div className='flex justify-center'>
-                <img className='w-52' src={g2} alt="" />
-                <img  className='w-52' src={g3} alt="" />
-                <img className='w-52' src={g4} alt="" />
-                <img className='w-52' src={g5} alt="" />zx
-                <img className='w-52' src={g6} alt="" />
-                <img className='w-52' src={g7} alt="" />
+                <img className='w-52 border-2 border-blue-800 mr-4 rounded' src={g2} alt="" />
+                <img  className='w-52 border-2 border-blue-800 mr-4 rounded' src={g3} alt="" />
+                <img className='w-52 border-2 border-blue-800 mr-4 rounded' src={g4} alt="" />
+                <img className='w-52 border-2 border-blue-800 mr-4 rounded' src={g5} alt="" />zx
+            </div>
+            <div className='flex justify-center mt-8 mr-8 '>
+                <img className='w-92 h-60 mt-14 border-2 border-blue-800 rounded' src={g6} alt="" />
+                <img className='w-80 h-80 ms-10 border-2 border-blue-800 rounded' src={g7} alt="" />
             </div>
     </section>
     );

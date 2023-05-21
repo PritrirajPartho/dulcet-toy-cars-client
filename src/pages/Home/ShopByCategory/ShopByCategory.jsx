@@ -31,10 +31,10 @@ const ShopByCategory = () => {
     }
     return (
         <Tabs>
-            <TabList className={'text-center'}>
-                <Tab onClick={() => handleTab('bus')}>Bus</Tab>
-                <Tab onClick={() => handleTab('truck')}>Truck</Tab>
-                <Tab onClick={() => handleTab('car')}>Car</Tab>
+            <TabList className={'flex justify-center '}>
+                <Tab className={'text-2xl bg-red-800 ms-6 px-10 border-2 border-r-lime-700'} onClick={() => handleTab('truck')}>Truck</Tab>
+                <Tab className={'text-2xl bg-red-800 ms-6 px-10 border-5 border-r-lime-700'} onClick={() => handleTab('car')}>Car</Tab>
+                <Tab className={'text-2xl bg-red-800 ms-6 px-10 border-5 border-r-lime-700'} onClick={() => handleTab('bus')}>Bus</Tab>
             </TabList>
             <TabPanel className={'text-center'}>
                 {content}
