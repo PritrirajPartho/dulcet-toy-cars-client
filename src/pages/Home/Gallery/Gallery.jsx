@@ -9,7 +9,7 @@ import g7 from '../../../../public/gallery/g-7.jpeg';
 const Gallery = () => {
     return (
     <section className='mb-12'>
-            <h1 className=''>Photo Gallery</h1>
+            <h1 className='text-4xl text-green-600 text-center mt-8 mb-8'>Photo Gallery</h1>
             <div className='flex justify-center'>
                 <img className='w-52 border-2 border-blue-800 mr-4 rounded' src={g2} alt="" />
                 <img  className='w-52 border-2 border-blue-800 mr-4 rounded' src={g3} alt="" />

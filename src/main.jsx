@@ -18,6 +18,7 @@ import MyToys from './pages/MyToys/MyToys';
 import UpdateMyToys from './pages/MyToys/UpdateMyToys';
 import ToyDetails from './pages/ToyDetails/ToyDetails';
 import Home from './pages/Home/Home';
+import Blogs from './pages/Blogs/Blogs';
 
 
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/alltoys",
         element: <AllToys></AllToys>,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
       },
       {
         path: "/mytoys",
