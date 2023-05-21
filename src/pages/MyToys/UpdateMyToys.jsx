@@ -15,7 +15,6 @@ const UpdateMyToys = () => {
         const price = form.price.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
-        console.log(name, price, quantity, description)
         const updateToy = {
             name:name,
             price:price,
