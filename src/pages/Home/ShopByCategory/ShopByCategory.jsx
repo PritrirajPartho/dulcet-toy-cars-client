@@ -9,7 +9,7 @@ const ShopByCategory = () => {
     const[activetab, setaActivetab] = useState('bus');
 
     useEffect(() => {
-     fetch(`http://localhost:5000/alltoys/${activetab}`)
+     fetch(`https://toy-marketplace-server-sepia.vercel.app/alltoys/${activetab}`)
      .then(res => res.json())
      .then(data => {
         setToys(data)
@@ -32,19 +32,21 @@ const ShopByCategory = () => {
     return (
         <Tabs>
             <TabList className={'flex justify-center '}>
-                <Tab className={'text-2xl bg-red-800 ms-6 px-10 border-2 border-r-lime-700'} onClick={() => handleTab('truck')}>Truck</Tab>
-                <Tab className={'text-2xl bg-red-800 ms-6 px-10 border-5 border-r-lime-700'} onClick={() => handleTab('car')}>Car</Tab>
-                <Tab className={'text-2xl bg-red-800 ms-6 px-10 border-5 border-r-lime-700'} onClick={() => handleTab('bus')}>Bus</Tab>
+                <Tab className={`tab tab1${activetab == "truck"? "bg-red-600 text-white" : ""}`} onClick={() => handleTab('truck')}>Truck</Tab>
+                <Tab className={activetab == "car"? "bg-red-600 text-white": ''} onClick={() => handleTab('car')}>Car</Tab>
+                <Tab className={activetab == 'bus' ? 'bg-red-600 text-white' : ''} onClick={() => handleTab('bus')}>Bus</Tab>
             </TabList>
-            <TabPanel className={'text-center'}>
-                {content}
-            </TabPanel >
-            <TabPanel className={'text-center'}>
-                {content}
-            </TabPanel>
-            <TabPanel className={'text-center'}>
-                {content}
-            </TabPanel>
+             <div className='flex justify-center flex-row'>
+                <TabPanel className={'flex justify-center'}>
+                    {content}
+                </TabPanel >
+                <TabPanel className={'grid grid-cols-2 md:grid-cols-2'}>
+                    {content}
+                </TabPanel>
+                <TabPanel className={'grid grid-cols-2 md:grid-cols-2'}>
+                    {content}
+                </TabPanel>
+             </div>
       </Tabs>
     );
 };
