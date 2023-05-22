@@ -17,14 +17,13 @@ const HappyClient = () => {
               </div>
             </div>
             <div className=" mt-4 ms-3 font-bold">
-              <h1>Probir Ghosh</h1>
-              <h3>Businessman</h3>
+              <h1>Tania Jahan</h1>
+              <h3>Programer</h3>
             </div>
           </div>
           <div className="ms-2 mt-2 rounded">
             <p>
-              User comments on webpages could provide additional SEO value,
-              Google says, but they have to be tightly moderated for spam and{" "}
+            You have done well so far, but don’t become complacent – there is always room for improvement! I have noticed several errors in your notes, including…
             </p>
           </div>
         </section>
@@ -37,14 +36,12 @@ const HappyClient = () => {
             </div>
             <div className=" mt-4 ms-3 font-bold">
               <h1>Probir Ghosh</h1>
-              <h3>Businessman</h3>
+              <h3>Instructor</h3>
             </div>
           </div>
           <div className="ms-2 mt-2 rounded">
             <p>
-              User comments on webpages could provide additional SEO value,
-              Google says, but they have to be tightly moderated for spam and{" "}
-            </p>
+             Your efforts are commendable, but it would have been good to have seen you focus throughout as your performance waned towards the end of the session.            </p>
           </div>
         </section>
         {/* ------------------------------- */}

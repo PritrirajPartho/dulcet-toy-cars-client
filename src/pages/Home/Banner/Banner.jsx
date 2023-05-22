@@ -7,7 +7,7 @@ import sldie3 from '../../../../public/img/slider-three.jpeg';
 const Banner = () => {
     return (
     <section>
-        <h1 className='text-center text-3xl text-blue-600 mt-10'>That's You Want Toy</h1>
+        <h1 className='text-center text-3xl text-blue-600 mt-10'>That's Your Choice</h1>
       <div className="carousel slide-controll">
             <div id="slide1" className="carousel-item relative w-full">
                 <img src={sldie1} className="w-full" />

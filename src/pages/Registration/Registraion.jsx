@@ -72,6 +72,7 @@ return (
                                 </label>
                                 <input type="text" name='password' placeholder="password" className="input input-bordered" />
                             </div>
+                            <p className='text-red-600 mt-3'>{error}</p>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Registration" />
                             </div>
