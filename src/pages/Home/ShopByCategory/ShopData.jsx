@@ -7,7 +7,7 @@ const ShopData = ({toy}) => {
     const{user} = useContext(AuthContext);
     const{_id, name, img, seller, email, price, rating, quantity, select, description} = toy;
     return (
-        <div className="card w-96  mt-16 mb-12 bg-base-100 shadow-xl border-2 border-red-600">
+        <div className="card w-96 mr-12 mt-16 mb-12 bg-base-100 shadow-xl border-2 border-red-600">
             <figure className="px-10 pt-10 w-96 h-60">
                 <img src={img} alt="Shoes" className="rounded-xl" />
             </figure>

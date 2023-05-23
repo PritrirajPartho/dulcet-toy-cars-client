@@ -59,7 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/update/:id",
-        element: <UpdateMyToys></UpdateMyToys>,
+        element: <UpdateMyToys ></UpdateMyToys>,
         loader: ({params}) => fetch(`https://toy-marketplace-server-sepia.vercel.app/toys/${params.id}`)
       },
       {

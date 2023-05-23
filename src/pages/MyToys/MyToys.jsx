@@ -3,10 +3,11 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import MyToysRow from '../MyToys/MyToysRow';
 import Swal from 'sweetalert2';
 
+
 const MyToys = () => {
     const{user} = useContext(AuthContext);
     const[mytoys, setMytoys] = useState([]);
-    // const [retoys, setRetoys] = useState(mytoys);
+    // sorting system
    
     const url = `https://toy-marketplace-server-sepia.vercel.app/mytoys?email=${user?.email}`
     useEffect(() => {
@@ -51,7 +52,14 @@ const MyToys = () => {
 
     return (
         <div>
-            <h2 className="text-4xl text-blue-600 text-center mt-8 mb-8">Your Added Toys.</h2>
+            <h2 className="text-4xl text-blue-600 text-center mt-8 mb-8">Your Added Toys</h2>
+                <div className='flex justify-center mt-4 mb-10'>
+                <select className="select select-error w-full max-w-xs">
+                    <option disabled selected>Sort By</option>
+                    <option>descending </option>
+                    <option>ascending</option>
+              </select>
+                </div>
             <div className="overflow-x-auto w-full mb-12">
                 <table className="table w-full ">
                     {/* head */}

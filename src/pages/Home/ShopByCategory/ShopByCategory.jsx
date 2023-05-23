@@ -1,6 +1,5 @@
 import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ShopData from './ShopData';
 
@@ -27,27 +26,22 @@ const ShopByCategory = () => {
         content = toys.map(toy => <ShopData key={toy._id} toy={toy}/>)
     }
     if(toys.length === 0){
-        content = <p>not data found</p>
+        content = <p className='text-3xl font-bold mt-10 mb-10'>not data found</p>
     }
     return (
-        <Tabs>
-            <TabList className={'flex justify-center '}>
-                <Tab className={`tab tab1${activetab == "truck"? "bg-red-600 text-white" : ""}`} onClick={() => handleTab('truck')}>Truck</Tab>
-                <Tab className={activetab == "car"? "bg-red-600 text-white": ''} onClick={() => handleTab('car')}>Car</Tab>
-                <Tab className={activetab == 'bus' ? 'bg-red-600 text-white' : ''} onClick={() => handleTab('bus')}>Bus</Tab>
-            </TabList>
-             <div className='flex justify-center flex-row'>
-                <TabPanel className={'flex justify-center'}>
-                    {content}
-                </TabPanel >
-                <TabPanel className={'grid grid-cols-2 md:grid-cols-2'}>
-                    {content}
-                </TabPanel>
-                <TabPanel className={'grid grid-cols-2 md:grid-cols-2'}>
-                    {content}
-                </TabPanel>
-             </div>
-      </Tabs>
+     <section>
+         <h1 className='text-center text-emerald-600 text-5xl mb-4 mt-8'>Shop by category</h1>
+         <div className='flex justify-center bg-none'>
+         <div className="tabs mt-4">
+            <a className={`bg-slate-400 border-2 border-red-600 px-4 py-2 text-2xl text-white mr-10 rounded ${activetab == 'car'? 'bg-red-500': 'bg-slate-400 border-2'}`} onClick={() => handleTab('car')}>Car</a> 
+            <a className={`bg-slate-400 border-2 border-red-600 px-4 py-2 text-2xl text-white mr-10 rounded ${activetab == 'bus'? 'bg-red-500': 'bg-slate-400 border-2'}`} onClick={() => handleTab('bus')}>Bus</a> 
+            <a className={`bg-slate-400 border-2 border-red-600 px-4 py-2 text-2xl text-white mr-10 rounded ${activetab == 'truck'? 'bg-red-500': 'bg-slate-400 border-2'}`} onClick={() => handleTab('truck')}>Truck</a>
+            </div>
+         </div>
+          <div className='flex justify-center'>
+            {content}
+          </div>
+     </section>
     );
 };
 
