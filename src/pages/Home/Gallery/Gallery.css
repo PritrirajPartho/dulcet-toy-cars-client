@@ -1,0 +1,14 @@
+
+@media only screen and (max-width: 600px) {
+    .gallery{
+       display: flex;
+       flex-direction: column;
+       margin-left: 50px;
+    }
+    .gallery img{
+      width: 200px;
+      max-height: 300px;
+      margin-bottom: 30px;
+    }
+    .gallery im{}
+}

@@ -7,16 +7,21 @@ import Swal from 'sweetalert2';
 const MyToys = () => {
     const{user} = useContext(AuthContext);
     const[mytoys, setMytoys] = useState([]);
+    const[asc, setAsc] = useState(true);
+    console.log(asc)
     // sorting system
    
-    const url = `https://toy-marketplace-server-sepia.vercel.app/mytoys?email=${user?.email}`
+    const url = `https://toy-marketplace-server-sepia.vercel.app/mytoys?email=${user?.email}&sort=${asc?'asc': 'dsc'}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => setMytoys(data))
-    }, [url]);
-   console.log(mytoys)
+    }, [asc]);
 
+    useEffect(() => {
+        document.title = 'Dulcet-Toy-Cars | My-toys'
+    },[])
+   
     // delet action is here........
     const handleDelete = id => {
         console.log(id)
@@ -54,11 +59,14 @@ const MyToys = () => {
         <div>
             <h2 className="text-4xl text-blue-600 text-center mt-8 mb-8">Your Added Toys</h2>
                 <div className='flex justify-center mt-4 mb-10'>
-                <select className="select select-error w-full max-w-xs">
+                {/* <select onChange={(e) => setAsc(e.target.value)} className="select select-error w-full max-w-xs">
                     <option disabled selected>Sort By</option>
-                    <option>descending </option>
-                    <option>ascending</option>
-              </select>
+                    <option value='dsc'>descending </option>
+                    <option value='asc'>ascending</option>
+              </select> */}
+              <button className="btn btn-primary mt-5" onClick={() => setAsc(!asc)}>
+                   {asc ? "Price  high to Low" : "Price  Low to high"}
+              </button>
                 </div>
             <div className="overflow-x-auto w-full mb-12">
                 <table className="table w-full ">

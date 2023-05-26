@@ -3,7 +3,6 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Tooltip } from 'react-tooltip';
-import logo from '../../../public/com/logo.png'
 
 const Header = () => {
     const { logOut, user } = useContext(AuthContext);
@@ -39,7 +38,6 @@ const Header = () => {
                 }
             </ul>
           </div>
-             <img className='w-52 h-28 ' src={logo} alt="" />
              <h1 className=" normal-case text-xl font-bold ms-5 ">Dulcet-Toy-Cars</h1> 
           </div>
         <div className="navbar-center hidden lg:flex">

@@ -19,6 +19,7 @@ import UpdateMyToys from './pages/MyToys/UpdateMyToys';
 import ToyDetails from './pages/ToyDetails/ToyDetails';
 import Home from './pages/Home/Home';
 import Blogs from './pages/Blogs/Blogs';
+import Aos from 'aos';
 
 
 

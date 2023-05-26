@@ -1,5 +1,5 @@
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import app from '../../firebase/firebase.config';
@@ -13,7 +13,7 @@ const Login = () => {
 // -------------------------------------------------------
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname  || '/'
+    const from = location.state?.from?.pathname  || '/';
 
 // --------------------------------------------------------
 
@@ -52,13 +52,16 @@ const Login = () => {
             console.log(err.message)
         })
     }
-    
+    useEffect(() => {
+        document.title = 'Dulcet-Toy-Cars | Login'
+    },[])
     // signin with google------------------------------------------
     const handleGogleSignIn = () =>{
         signInWithPopup(auth, GoogleProvider)
         .then((result)=>{
            const logedInUser = result.user;
            console.log(logedInUser);
+           navigate(from, {replace: true})
         })
         .catch((error) => {
           console.log(error.message);

@@ -1,10 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Select from 'react-select';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2'
 
 
 const AddToy = () => {
+    // title set
+    useEffect(() => {
+        document.title = 'Dulcet-Toy-Cars | Addtoy'
+    },[])
+
     const{user} = useContext(AuthContext);
     const [selectedOption, setSelectedOption] = useState(null);
     const options = [
@@ -32,7 +37,7 @@ const AddToy = () => {
             img: photo, 
             seller: seller,
             email: email, 
-            price: price,
+            price: parseFloat(price),
             rating: rating,
             quantity: quantity,
             category: select,

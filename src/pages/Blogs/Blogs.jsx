@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Blogs = () => {
+    useEffect(() => {
+        document.title = 'Dulcet-Toy-Cars | Blogs'
+    },[])
     return (
         <div className='m-20 '>
             <h1 className='text-purple-400 text-3xl mt-5'>1. What is an access token and refresh token? How do they work and where should we store them on the client-side?</h1>

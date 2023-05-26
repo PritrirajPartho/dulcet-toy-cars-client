@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Registraion = () => {
@@ -40,6 +40,9 @@ const Registraion = () => {
           console.log(err.message)
         })
     }
+    useEffect(() => {
+        document.title = 'Dulcet-Toy-Cars | Registration'
+    },[])
 return (
   <section>
      <div className="hero min-h-screen bg-base-200">

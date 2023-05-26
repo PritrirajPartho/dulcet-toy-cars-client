@@ -1,0 +1,9 @@
+@media only screen and (max-width: 600px) {
+    .client{
+      display: flex;
+      flex-direction: column;
+    }
+    .client section{
+        margin-bottom: 30px;
+    }
+  }

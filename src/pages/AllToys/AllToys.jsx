@@ -8,6 +8,9 @@ const AllToys = () => {
         .then(res => res.json())
         .then(data => setToys(data))
     },[])
+    useEffect(() => {
+        document.title = 'Dulcet-Toy-Cars | All-toys'
+    },[])
     return (
         <div>
             <h2 className="text-5xl text-blue-600 text-center mt-8 mb-8">All Available Toys.</h2>
